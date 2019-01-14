@@ -1,0 +1,18 @@
+{
+	"manifest_version": 2,
+	"version": "1.0",
+	"name": "Dahua WEB Translator",
+	"description": "Dahua WEB Translator extension can enable English localization for web interface without flashing patched firmware. Enjoy it.",
+	"icons": {},
+	"permissions": [
+		"tabs",
+		"<all_urls>"
+	],
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["jquery321.js","dict.js","content.js"],
+			"run_at": "document_end"
+		}
+	]
+}
