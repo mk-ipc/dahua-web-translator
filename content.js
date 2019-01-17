@@ -79,11 +79,9 @@ function translate() {
 
 	log('TRANSLATE');
 
-	let elems = $('[t]');
+	let elems = document.querySelectorAll('[t]');
 
-	for(let i=0; i<elems.length; i++) {
-		let elem = elems[i];
-		let jElem = $(elem);
+	for(let elem of elems) {
 		let i18n_id = elem.getAttribute('t');
 
 		let converted = convert(i18n_id);
@@ -93,13 +91,13 @@ function translate() {
 			let cItem = converted[c].join('');
 			if(c === '__content__') {
 				// check if content need update then update
-				if(jElem.html() !== cItem) {
-					jElem.html(cItem);
+				if(elem.innerHTML !== cItem) {
+					elem.innerHTML = cItem;
 				}
 			} else {
 				// check if property need update then update
-				if(jElem.prop(c) !== cItem) {
-					jElem.prop(c, cItem);
+				if(elem.getAttribute(c) !== cItem) {
+					elem.setAttribute(c, cItem);
 				}
 			}
 		}
