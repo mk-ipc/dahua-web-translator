@@ -58,9 +58,7 @@ function convert(encoded_i18n_id) {
 
 	const semicolonSplit = encoded_i18n_id.split(';'); // split by ';'
 
-	for(let ss=0;ss<semicolonSplit.length;ss++) {
-		const ssItem = semicolonSplit[ss];
-
+	for(const ssItem of semicolonSplit) {
 		const doubleColonSplit = ssItem.split('::'); // split by '::'
 		if(doubleColonSplit.length > 1) {
 			// if splits then fill corresponding attribute
